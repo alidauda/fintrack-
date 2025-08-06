@@ -34,7 +34,7 @@ export default function DashboardLayout({
   };
 
   return (
-    <div className="h-screen flex flex-col px-4 lg:px-12">
+    <div className="h-screen flex flex-col px-4 lg:px-12 ">
       <Header onSidebarToggle={toggleSidebar} isSidebarOpen={isSidebarOpen} />
       
       {/* Mobile Overlay */}

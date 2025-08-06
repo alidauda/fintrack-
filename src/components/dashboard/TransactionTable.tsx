@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import  Badge  from '@/components/ui/Badge'
 
 interface Transaction {
   date: string
@@ -151,12 +152,10 @@ export default function TransactionTable() {
                   {transaction.currency}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  <div className="flex items-center">
-                    <div className={`w-2 h-2 rounded-full mr-2 ${
-                      transaction.type === 'Credit' ? 'bg-green-500' : 'bg-red-500'
-                    }`}></div>
-                    {transaction.type}
-                  </div>
+                  <Badge
+                    value={transaction.type}
+                    variant={transaction.type === 'Credit' ? 'success' : 'error'}
+                  />
                 </td>
               </tr>
             ))}
