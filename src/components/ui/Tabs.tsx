@@ -12,14 +12,14 @@ interface TabItem {
 interface TabsProps {
   tabs: TabItem[];
   defaultTab?: string;
-  className?: string;
+
 }
 
-export default function Tabs({ tabs, defaultTab, className = "" }: TabsProps) {
+export default function Tabs({ tabs, defaultTab }: TabsProps) {
   const [activeTab, setActiveTab] = useState<string>(defaultTab || tabs[0]?.id);
 
   return (
-    <div className={cn("w-full", className)}>
+    <div className={cn("w-full")}>
     
       <div className="border-b border-gray-200">
         <nav className="flex space-x-8">
@@ -27,11 +27,12 @@ export default function Tabs({ tabs, defaultTab, className = "" }: TabsProps) {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`py-4 px-1 border-b-2 font-medium text-sm transition-colors duration-200 ${
+                  className={cn(
+                  "py-4 px-1 border-b-2 font-medium text-sm transition-colors duration-200",
                 activeTab === tab.id
-                  ? 'border-blue-500 text-blue-600'
-                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-              }`}
+                  ? 'border-[#437D8E] text-[#437D8E]'
+                  : 'border-transparent text-[#cacfcf] hover:text-[#cacfcf] hover:border-[#cacfcf]'
+              )} 
             >
               {tab.label}
             </button>

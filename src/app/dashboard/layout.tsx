@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Header from "@/components/layout/Header";
 import Sidebar from "@/components/layout/Sidebar";
 import MobileOverlay from "@/components/layout/MobileOverlay";
-
+import ReactQueryProvider from "@/utils/react-query";
 export default function DashboardLayout({
   children,
 }: {
@@ -34,22 +34,28 @@ export default function DashboardLayout({
   };
 
   return (
-    <div className="h-screen flex flex-col px-4 lg:px-12 ">
-      <Header onSidebarToggle={toggleSidebar} isSidebarOpen={isSidebarOpen} />
-      
-      {/* Mobile Overlay */}
+    <div className="h-screen flex overflow-hidden">
+    
       <MobileOverlay 
         isOpen={isSidebarOpen && isMobile} 
         onClose={() => setIsSidebarOpen(false)} 
       />
       
-      <div className="flex flex-1 relative">
-        <Sidebar 
-          isOpen={isSidebarOpen} 
-          onToggle={toggleSidebar} 
-        />
-        <main className="flex-1 py-7 pl-0 lg:pl-12 transition-all duration-300">
-          {children}
+    
+      <Sidebar 
+        isOpen={isSidebarOpen} 
+        onToggle={toggleSidebar} 
+      />
+      
+
+      <div className="flex-1 flex flex-col overflow-hidden">
+        <div className="px-4 lg:px-8">
+          <Header onSidebarToggle={toggleSidebar} isSidebarOpen={isSidebarOpen} />
+        </div>
+        <main className="flex-1 overflow-y-auto px-4 lg:px-8 py-6">
+          <ReactQueryProvider>
+            {children}
+          </ReactQueryProvider>
         </main>
       </div>
     </div>

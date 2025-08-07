@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { LayoutGrid, Menu, Search } from "lucide-react";
 import { motion } from "framer-motion";
-import { cn } from "@/utils/cn";
+import { useState, useEffect } from "react";
 
 interface HeaderProps {
   onSidebarToggle?: () => void;
@@ -10,50 +10,53 @@ interface HeaderProps {
 }
 
 export default function Header({ onSidebarToggle, isSidebarOpen = false }: HeaderProps) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
   return (
-    <header className="h-16 text-text-primary flex items-center justify-between py-4">
-      <div className="flex items-center gap-7">
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ type: "spring", stiffness: 400, damping: 17 }}
-        >
-          <Menu 
-            size={24} 
-            className={cn(
-              "cursor-pointer hover:opacity-80 transition-opacity",
-            
-            )}
+    <header className="h-16 text-text-primary flex items-center justify-between py-4 border-b border-gray-100">
+      <div className="flex items-center gap-4">
+        {/* Mobile menu button - only show on mobile when sidebar is closed */}
+        {isMobile && !isSidebarOpen && (
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
             onClick={onSidebarToggle}
-          />
-        </motion.div>
-        <motion.div
-          whileHover={{ scale: 1.02 }}
-          transition={{ type: "spring", stiffness: 400, damping: 17 }}
-        >
-          <Image
-            src="/logo.png"
-            alt="logo"
-            width={112}
-            height={32}
-            className="cursor-pointer"
-          />
-        </motion.div>
+            className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+          >
+            <Menu size={20} className="text-gray-600" />
+          </motion.button>
+        )}
+        
+        {/* Page title or breadcrumb can go here */}
+        <div className="text-lg font-semibold text-gray-900">
+          {/* This can be made dynamic based on current page */}
+        </div>
       </div>
-      <div className="flex items-center gap-7">
+      
+      <div className="flex items-center gap-4">
         <motion.div
           whileHover={{ scale: 1.1, rotate: 5 }}
           whileTap={{ scale: 0.9 }}
           transition={{ type: "spring", stiffness: 400, damping: 17 }}
         >
-          <Search size={24} className="cursor-pointer" />
+          <Search size={20} className="cursor-pointer text-gray-600 hover:text-gray-900 transition-colors" />
         </motion.div>
         <motion.div
           whileHover={{ scale: 1.1, rotate: -5 }}
           whileTap={{ scale: 0.9 }}
           transition={{ type: "spring", stiffness: 400, damping: 17 }}
         >
-          <LayoutGrid size={24} className="cursor-pointer" />
+          <LayoutGrid size={20} className="cursor-pointer text-gray-600 hover:text-gray-900 transition-colors" />
         </motion.div>
         <motion.div
           whileHover={{ scale: 1.05 }}
@@ -63,9 +66,9 @@ export default function Header({ onSidebarToggle, isSidebarOpen = false }: Heade
           <Image
             alt="User avatar"
             src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-            width={40}
-            height={40}
-            className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
+            width={32}
+            height={32}
+            className="inline-block h-8 w-8 rounded-full ring-2 ring-white shadow-sm"
           />
         </motion.div>
       </div>

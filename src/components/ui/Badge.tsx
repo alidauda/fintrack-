@@ -13,8 +13,8 @@ export default function Badge({ value, variant }: BadgeProps) {
           className={cn(
             "w-2 h-2 bg-background-tertiary rounded-full",
             variant === "success" && "bg-background-tertiary",
-            variant === "warning" && "bg-background-secondary",
-            variant === "error" && "bg-red-400"
+            
+            variant === "error" && "bg-[#C6381B]"
           )}
         ></div>
         <p className="text-text-secondary text-[15px] leading-[20px] font-medium">

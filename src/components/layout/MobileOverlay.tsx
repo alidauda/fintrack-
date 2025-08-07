@@ -13,7 +13,7 @@ export default function MobileOverlay({ isOpen, onClose }: MobileOverlayProps) {
       opacity: 1,
       backdropFilter: "blur(4px)",
       transition: {
-        duration: 0.3,
+        duration: 0.25,
         ease: "easeOut"
       }
     },
@@ -22,7 +22,8 @@ export default function MobileOverlay({ isOpen, onClose }: MobileOverlayProps) {
       backdropFilter: "blur(0px)",
       transition: {
         duration: 0.2,
-        ease: "easeIn"
+        ease: "easeIn",
+        delay: 0.05
       }
     }
   };
