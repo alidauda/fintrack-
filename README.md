@@ -2,11 +2,7 @@
 
 ## 🎥 Demo
 
-<div>
-  <a href="https://www.loom.com/share/e812324f0fe74be68f66e40bbf750aab">
-    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/e812324f0fe74be68f66e40bbf750aab-1736174229421-with-play.gif">
-  </a>
-</div>
+**[View Live Demo →](https://www.loom.com/share/e812324f0fe74be68f66e40bbf750aab)**
 
 A modern, responsive financial tracking dashboard built with **React**, **TypeScript**, and **Next.js**. This project implements a comprehensive wallet ledger interface featuring transaction management, summary analytics, and a fully responsive design.
 
