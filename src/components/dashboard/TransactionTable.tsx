@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import Badge from '@/components/ui/Badge'
 import SortCaretIcon from '@/components/ui/SortCaretIcon';
 import { getTransactions } from '@/api/transactions';
-import { Transaction } from '@/constant/data/transactions';
+import { Transaction } from '@/types/transcation';
 import TableSkeleton from '@/components/ui/TableSkeleton';
 import TableEmptyState from '@/components/ui/TableEmptyState';
 import TableErrorState from '@/components/ui/TableErrorState';
