@@ -31,9 +31,9 @@ export default function DashboardPage() {
 
   return (
     <div>
-      <div className="flex justify-between items-center">
-        <div className="flex items-center gap-4 ">
-          <h1 className=" text-lg lg:text-large   font-bold leading-6 lg:leading-large flex items-center gap-2">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+          <h1 className="text-lg lg:text-large font-bold leading-6 lg:leading-large flex items-center gap-2">
             Wallet Ledger{" "}
             <span className="text-text-secondary text-medium leading-medium">
               <Image
@@ -47,12 +47,11 @@ export default function DashboardPage() {
 
           <Badge value="Active" variant="success" />
         </div>
-        <div className="flex items-center gap-2">
-          <button className="cursor-pointer bg-[#4B8B9F] text-text-primary rounded-full px-[18px] py-1.5 text-medium leading-medium">
+        <div className="flex items-center gap-2 self-start sm:self-auto">
+          <button className="cursor-pointer bg-[#4B8B9F] text-text-primary rounded-full px-3 sm:px-[18px] py-1.5 text-sm sm:text-medium leading-medium">
             Share
           </button>
           <div className="border-[1.5px] border-[#49656E33] rounded-full p-2">
-            {" "}
             <MoreHorizontal size={20} className="cursor-pointer" />
           </div>
         </div>

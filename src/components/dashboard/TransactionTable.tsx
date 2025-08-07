@@ -190,9 +190,7 @@ export default function TransactionTable() {
               <div className="flex items-center space-x-4">
                 <span className="text-sm text-gray-500">{transaction.currency}</span>
               </div>
-              <span className={`text-lg font-semibold ${
-                transaction.amount >= 0 ? 'text-green-600' : 'text-red-600'
-              }`}>
+              <span className={`text-lg font-semibold text-text-primary`}>
                 {formatAmount(transaction.amount)}
               </span>
             </div>
