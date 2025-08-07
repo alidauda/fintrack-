@@ -24,7 +24,7 @@ export default function Header({ onSidebarToggle, isSidebarOpen = false }: Heade
   return (
     <header className="h-16 text-text-primary flex items-center justify-between py-4 border-b border-gray-100">
       <div className="flex items-center gap-4">
-        {/* Mobile menu button - only show on mobile when sidebar is closed */}
+        
         {isMobile && !isSidebarOpen && (
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -37,10 +37,7 @@ export default function Header({ onSidebarToggle, isSidebarOpen = false }: Heade
           </motion.button>
         )}
         
-        {/* Page title or breadcrumb can go here */}
-        <div className="text-lg font-semibold text-gray-900">
-          {/* This can be made dynamic based on current page */}
-        </div>
+      
       </div>
       
       <div className="flex items-center gap-4">

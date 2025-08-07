@@ -16,7 +16,7 @@ export default function DashboardLayout({
     const checkScreenSize = () => {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
-      // On desktop, sidebar starts open, on mobile starts closed
+     
       if (!mobile) {
         setIsSidebarOpen(true);
       } else {

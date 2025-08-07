@@ -1,10 +1,4 @@
-export interface Transaction {
-  date: string;
-  remark: string;
-  amount: number;
-  currency: string;
-  type: "Credit" | "Debit";
-}
+import { Transaction } from "@/constant/route/transcation";
 
 export const transactions: Transaction[] = [
   {

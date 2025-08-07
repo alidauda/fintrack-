@@ -1,4 +1,4 @@
-import { ChevronDown, MoreHorizontal } from "lucide-react";
+import {  MoreHorizontal } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 import AvatarGroup from "@/components/ui/AvatarGroup";
 import Tabs from "@/components/ui/Tabs";

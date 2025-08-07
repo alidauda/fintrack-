@@ -89,7 +89,7 @@ export default function Sidebar({ isOpen = true, onToggle }: SidebarProps) {
     }
   };
 
-  // On mobile, don't render the sidebar at all when closed
+ 
   if (isMobile && !isOpen) {
     return null;
   }
@@ -105,7 +105,7 @@ export default function Sidebar({ isOpen = true, onToggle }: SidebarProps) {
       )}
     >
       <div className="flex flex-col h-full">
-        {/* Header Section with Logo and Toggle */}
+        
         <div className="flex items-center justify-between p-4 border-b border-gray-200">
           {isOpen ? (
             <>
@@ -149,7 +149,7 @@ export default function Sidebar({ isOpen = true, onToggle }: SidebarProps) {
           )}
         </div>
 
-        {/* Navigation Menu */}
+       
         <div className="flex-1 py-4">
           {isOpen && (
             <div className="flex flex-col gap-2 px-4">
@@ -174,7 +174,7 @@ export default function Sidebar({ isOpen = true, onToggle }: SidebarProps) {
                         "bg-background-secondary rounded-full text-text-secondary "
                     )}
                     onClick={() => {
-                      // Close sidebar on mobile when clicking a link
+                  
                       if (isMobile && onToggle) {
                         onToggle();
                       }

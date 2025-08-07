@@ -19,7 +19,7 @@ export default function AvatarGroup({
   showNames = true
 }: AvatarGroupProps) {
   const visibleUsers = users.slice(0, maxVisible);
-  const remainingCount = users.length - maxVisible;
+
   
   const visibleNames = users.slice(0, maxNamesShown).map(user => user.name);
   const remainingNamesCount = users.length - maxNamesShown;
