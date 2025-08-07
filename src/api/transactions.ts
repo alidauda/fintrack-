@@ -1,4 +1,5 @@
-import { transactions, Transaction } from "@/constant/data/transactions";
+import { transactions } from "@/constant/data/transactions";
+import { Transaction } from "@/types/transcation";
 
 export async function getTransactions(): Promise<Transaction[]> {
   return new Promise((resolve, reject) => {

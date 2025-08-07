@@ -1,4 +1,4 @@
-import { Transaction } from "@/constant/route/transcation";
+import { Transaction } from "@/types/transcation";
 
 export const transactions: Transaction[] = [
   {
